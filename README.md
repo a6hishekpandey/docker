@@ -86,8 +86,8 @@ docker run -dit -p <host-port>:<container-port> -e POSTGRES_PASSWORD=<password> 
 ## Docker compose
 Docker compose is a tool used to define and run multi-container Docker applications using a single YAML configuration file.  
 
-- docker.yml
-```yml
+### Structure of a docker.yaml file
+```yaml
 version: "3.9"
 
 services:
@@ -116,8 +116,35 @@ networks:
   network-name:
 ```
 
-- commands to start/stop containers defined in docker.yml file
+### Docker compose commands
 ```ruby
-docker compose -f ./docker.yml up #=> spin-up containers
-docker compose down             #=> tear-down containers
+docker compose -f ./docker.yaml up #=> spin-up containers
+docker compose down                #=> tear-down containers
+```
+
+---
+
+## Dockerfile
+A Dockerfile is a text file containing instructions to build a Docker image.  
+
+### Structure of a Dockerfile
+```ruby
+# 1. Base image
+FROM node:22-alpine
+
+# 2. Set working directory
+WORKDIR /app
+
+# 3. Copy dependencies
+COPY package*.json ./
+RUN npm install
+
+# 4. Copy application code
+COPY . .
+
+# 5. Expose container port
+EXPOSE 5173
+
+# 6. Define default command
+CMD ["npm", "run", "dev"]
 ```
