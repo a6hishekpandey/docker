@@ -16,15 +16,13 @@
 ## Docker cli commands
 
 ```ruby
-# Docker image commands
-
+# image commands
 docker pull <image-name>:<tag>       #=> pull an image
 docker images                        #=> show all images available on the local machine
 docker rmi <image-id | image-name>   #=> delete an image from the local machine
 docker build -t <image-name>:<tag> . #=> build an image
 
-# Docker container commands
-
+# container commands
 docker ps                                                  #=> show running containers
 docker run <image-name>                                    #=> run a container
 docker run -d <image-name>                                 #=> run a container in background
@@ -37,15 +35,13 @@ docker exec -it <container-name> <command>                 #=> run a command ins
 docker rm <container-name | container-id>                  #=> delete a container
 docker rm -f <container-name>                              #=> force remove a running container
 
-# Docker network commands
-
+# network commands
 docker network ls                    #=> lists all available docker networks
 docker network create <network-name> #=> create a docker network
 docker network rm <network-name>     #=> delete a docker network
 docker network prune                 #=> deletes all unused docker networks
  
-# Docker volume commands
-
+# volume commands
 docker volume ls                   #=> lists all available docker volumes
 docker volume create <volume-name> #=> create a docker volume
 docker volume rm <volume-name>     #=> delete a docker volume
@@ -129,22 +125,22 @@ A Dockerfile is a text file containing instructions to build a Docker image.
 
 ### Structure of a Dockerfile
 ```ruby
-# 1. Base image
+# 1. base image
 FROM node:22-alpine
 
-# 2. Set working directory
+# 2. set working directory
 WORKDIR /app
 
-# 3. Copy dependencies
+# 3. copy dependencies
 COPY package*.json ./
 RUN npm install
 
-# 4. Copy application code
+# 4. copy application code
 COPY . .
 
-# 5. Expose container port
+# 5. expose container port
 EXPOSE 5173
 
-# 6. Define default command
+# 6. define default command
 CMD ["npm", "run", "dev"]
 ```
