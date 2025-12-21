@@ -118,6 +118,6 @@ networks:
 
 - commands to start/stop containers defined in docker.yml file
 ```ruby
-docker compose -f docker.yml up #=> spin-up containers
+docker compose -f ./docker.yml up #=> spin-up containers
 docker compose down             #=> tear-down containers
 ```
