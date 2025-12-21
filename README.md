@@ -2,8 +2,8 @@
 
 ## Virtual Machine vs Docker
 
-- Virtual machines package hardware, OS, and applications together.
-- Docker (containers) package applications while reusing the host OS and hardware.
+- **Virtual Machine:** Virtual machines package hardware, OS, and applications together.
+- **Docker:** Docker (containers) package applications while reusing the host OS and hardware.
 
 ---
 
@@ -58,8 +58,6 @@ docker volume prune                #=> deletes all unused docker volumes
 Docker network enables containers to communicate with each other using container names through Docker’s built-in DNS, solving the problem of isolation.  
 
 ```ruby
-# Communication between postgres and pgadmin containers
-
 # step 1
 docker network create <network-name>
 
@@ -76,8 +74,6 @@ docker run -dit -p <host-port>:<container-port> -e PGADIM_DEFAULT_EMAIL=<email> 
 Docker volume is a persistent storage mechanism that stores data outside the container lifecycle, ensuring data is not lost when containers stop or are removed.  
 
 ```ruby
-# Persistent storage for postgres container
-
 # step 1
 docker volume create <volume-name>
 
@@ -122,6 +118,6 @@ networks:
 
 - commands to start/stop containers defined in docker.yml file
 ```ruby
-docker compose -f docker.yml up
-docker compose down
+docker compose -f docker.yml up #=> spin-up containers
+docker compose down             #=> tear-down containers
 ```
