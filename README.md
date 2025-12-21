@@ -91,15 +91,14 @@ Docker compose is a tool used to define and run multi-container Docker applicati
 version: "3.9"
 
 services:
-  service-name:
+  service-name-1:
     image: image-name
     ports:
       - "host-port:container-port"
     environment:
       key: value
-    depends_on: second-service-name
 
-  second-service-name:
+  service-name-2:
     image: image-name
     ports:
       - "host-port:container-port"
@@ -107,7 +106,8 @@ services:
       key: value
     volumes:
       - volume-name:path
-
+    depends_on: service-name-1
+    
 volumes:
   volume-name:
     external: true
