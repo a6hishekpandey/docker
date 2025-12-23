@@ -144,3 +144,8 @@ EXPOSE 5173
 # 6. define default command
 CMD ["npm", "run", "dev"]
 ```
+
+### Docker build command
+```ruby
+docker build -t <image-name>:<tag> .
+```
